@@ -1,34 +1,15 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHIV v29 - 8 GODS + 4 VETO</title>
-<style>body{background:#050507;color:#e5e5e5;font-family:monospace;padding:12px}.card{border:1px solid #222;border-radius:12px;padding:14px;margin:10px 0;background:#0e0e11}.top{border-color:#a855f7;box-shadow:0 0 20px #a855f722}.good{color:#22c55e}.bad{color:#ef4444}button{background:#a855f7;color:#fff;border:0;padding:10px 16px;border-radius:8px;font-weight:700}</style>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHIV - Performance</title>
+<style>body{background:#050507;color:#e5e5e5;font-family:monospace;padding:12px}.card{border:1px solid #222;border-radius:12px;padding:14px;margin:10px 0;background:#0e0e11}.good{color:#22c55e}.muted{opacity:0.6;font-size:11px}</style>
 </head><body>
-<h1>SHIV v29 | 8 GODS + 4 VETO | LIVE</h1>
-<p>De-duped Final | Breakout v27 KILLED | MeanRev + Scalper Merged</p>
-<div id="top4"></div>
-<div id="log" style="opacity:0.5;font-size:11px;margin-top:20px"></div>
+<h1>SHIV Performance</h1>
+<p class="muted">Auto-sorted | Live from active_modules.json</p>
+<div id="list">Loading...</div>
+<div id="log" class="muted" style="margin-top:20px"></div>
 <script>
-const GODS=[
-{id:'mickey',name:'01 MickeyScout GOD v29',pnl:0.974,w:30,desc:'defituna>85 + gmgn>0.87 | 50k-400k LIQ | BEST'},
-{id:'vulture',name:'02 Vulture GOD v29',pnl:0.89,w:25,desc:'Dumped >70% + RSI<30 | absorbs MeanRev 0.008'},
-{id:'sniper',name:'03 Sniper GOD v29',pnl:0.887,w:15,desc:'Age<7d + DLMM inflow 0.6 SOL + mcap 50k-500k'},
-{id:'degen',name:'04 Degen GOD v29',pnl:0.794,w:10,desc:'Age<24h + mcap<100k + DAMM-v2 + stop -90%'},
-{id:'momentum',name:'05 Momentum-Breakout GOD v29',pnl:0.517,w:10,desc:'Vol 3x + mcap>1M | KILLS Breakout v27 -0.363'},
-{id:'grid',name:'06 Grid GOD v29',pnl:0.377,w:5,desc:'BTC vol<3% + stable range'},
-{id:'scalper',name:'07 Scalper GOD v29',pnl:0.277,w:3,desc:'Merged 01-scalper-v27 + 09-scalper-v28 | bin 25-100'},
-{id:'airdrop',name:'08 Airdrop Hunter GOD v29',pnl:0.218,w:2,desc:'GMGN div 82 + JUP pools'},
-];
-function renderInstant(){
-const html=GODS.map(g=>`
-<div class=card top>
-<b>${g.name}</b> <span class=good>${g.pnl} SOL</span> | Weight ${g.w}%<br>
-<span style="font-size:11px;opacity:0.7">${g.desc}</span><br>
-<div style="margin-top:8px">FINAL SCORE: <b>${Math.round(85*g.w/15)} / 100</b> | 0.04 SOL | TP 100% SL 100%</div>
-<div style="margin-top:6px;font-size:10px"><span class=good>✓ RUGCHECK: 70+ PASS</span> | <span class=good>✓ BUBBLEMAPS: 40% central PASS</span> | <span class=good>✓ UNLOCKS: 999d PASS</span> | <span class=good>✓ LIQ: neutral</span></div>
-</div>`).join('');
-document.getElementById('top4').innerHTML=html;
-document.getElementById('log').innerText='LIVE '+new Date().toLocaleString()+' | 12 modules active | Filters: rugcheck.xyz + bubblemaps.io + tokenomist.ai + coinglass.com (backend validated)';
-}
-// Render INSTANT - no await, no CORS block
-renderInstant();
-</script>
-</body></html>
+async function load(){
+try{
+const res=await fetch('./active_modules.json?t='+Date.now());
+const data=await res.json();
+const mods=(data.modules||data).sort((a,b)=>(b.pnl||b.performance||0)-(a.pnl||a.performance||0));
+document.getElementById('list').innerHTML=
