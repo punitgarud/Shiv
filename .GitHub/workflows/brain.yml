@@ -1,0 +1,19 @@
+name: SHIV Brain 6H
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+jobs:
+  brain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node engine/index.js > active_modules.json
+      - run: |
+          git config user.name "shiv-bot"
+          git config user.email "bot@shiv"
+          git add active_modules.json
+          git commit -m "brain update" || exit 0
+          git push
