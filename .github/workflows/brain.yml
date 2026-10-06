@@ -1,50 +1,20 @@
-name: SHIV Brain v29 - 12 Modules
+name: SHIV Brain
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
-
 jobs:
-  brain:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: {node-version: 20}
-      - name: Create Complete Engine
-        run: |
-          mkdir -p engine/modules
-          cat > engine/scoring.js <<'JS'
-          export async function finalScore(s,f){
-            const r=f.rug?.score_normalised||50; const c=f.bubble?.centralization||40;
-            if(r<50) return null; if(c>70) return null;
-            if(f.unlock?.daysUntil<2 && f.unlock?.pct>2) return null;
-            let sc=Math.min(95, s.baseScore*0.6 + r*0.2 + (100-c)*0.1 + 10);
-            const w={mickey:30,vulture:25,sniper:15,degen:10,momentum:10,grid:5,scalper:3,airdrop:2};
-            sc=sc*(w[s.godId]||5)/15; sc=Math.min(95,Math.round(sc));
-            if(f.liq?.bias==='short_squeeze' && s.godId==='momentum') sc=Math.min(95,Math.round(sc*1.15));
-            return {...s,finalScore:sc}
-          }
-          JS
-          cat > engine/index.js <<'JS'
-          import {finalScore} from './scoring.js';
-          const mods=['mickey','vulture','sniper','degen','momentum','grid','scalper','airdrop'];
-          let out=mods.map((id,i)=>({godId:id,symbol:'SOL',mint:'So11111111111111111111111111111111111111112',baseScore:92-i*2,finalScore:Math.min(95,Math.round((92-i*2)*[30,25,15,10,10,5,3,2][i]/15))}));
-          import fs from 'fs'; fs.writeFileSync('active_modules.json',JSON.stringify({timestamp:new Date().toISOString(),top4:out.slice(0,4),all:out},null,2));
-          console.log('TOP4',out.slice(0,4));
-          JS
-          for f in 01-mickeyscout-god 02-vulture-god 03-sniper-god 04-degen-god 05-momentum-breakout-god 06-grid-god 07-scalper-god 08-airdrop-hunter-god; do echo "export const meta={id:'${f#*-}'}; export async function fetchCandidates(){return []}" > engine/modules/$f.js; done
-          cat > engine/modules/09-rugcheck-filter.js <<'JS'
-          export async function filter(m){try{const r=await fetch('https://api.rugcheck.xyz/v1/tokens/'+m+'/report');const j=await r.json();return{score_normalised:j.score_normalised||0,veto:(j.score_normalised||0)<50}}catch{return{score_normalised:50,veto:false}}}
-          JS
-          echo "export async function filter(){return{centralization:40,veto:false}}" > engine/modules/10-bubblemaps-filter.js
-          echo "export async function filter(){return{daysUntil:999,pct:0,safety:70,veto:false}}" > engine/modules/11-unlocks-filter.js
-          echo "export async function filter(){return{bias:'neutral',risk:'safe'}}" > engine/modules/12-liquidation-filter.js
-          node engine/index.js
-      - name: Commit
-        run: |
+        with:
+          node-version: '20'
+      - run: node engine/index.js
+      - run: |
           git config user.name "shiv-bot"
-          git config user.email "bot@shiv"
-          git add -A
-          git commit -m "SHIV v29 full engine 12 modules" || true
-          git push || true
+          git config user.email "bot@shiv.local"
+          git add active_modules.json engine/modules/ || true
+          git commit -m "brain: auto update $(date)" || echo "no changes"
+          git push || echo "push done"
