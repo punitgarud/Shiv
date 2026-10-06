@@ -1,15 +1,16 @@
-const fs=require('fs');
-const modules=[
-{id:'mickey',name:'MickeyScout',pnl:0.974,w:30},
-{id:'vulture',name:'Vulture',pnl:0.89,w:25},
-{id:'sniper',name:'Sniper',pnl:0.887,w:15},
-{id:'degen',name:'Degen',pnl:0.794,w:10},
-{id:'momentum',name:'Momentum-Breakout',pnl:0.517,w:10},
-{id:'grid',name:'Grid',pnl:0.377,w:5},
-{id:'scalper',name:'Scalper',pnl:0.277,w:3},
-{id:'airdrop',name:'Airdrop Hunter',pnl:0.218,w:2},
-].sort((a,b)=>b.pnl-a.pnl);
+import fs from 'fs';
 
-const out={updated:new Date().toISOString(),modules};
-fs.writeFileSync('active_modules.json',JSON.stringify(out,null,2));
-console.log('Wrote active_modules.json',modules.length);
+const modules = [
+  { id: 'mickey', name: 'MickeyScout', pnl: 0.974, w: 30 },
+  { id: 'vulture', name: 'Vulture', pnl: 0.89, w: 25 },
+  { id: 'sniper', name: 'Sniper', pnl: 0.887, w: 15 },
+  { id: 'degen', name: 'Degen', pnl: 0.794, w: 10 },
+  { id: 'momentum', name: 'Momentum-Breakout', pnl: 0.517, w: 10 },
+  { id: 'grid', name: 'Grid', pnl: 0.377, w: 5 },
+  { id: 'scalper', name: 'Scalper', pnl: 0.277, w: 3 },
+  { id: 'airdrop', name: 'Airdrop Hunter', pnl: 0.218, w: 2 }
+].sort((a, b) => b.pnl - a.pnl);
+
+const out = { updated: new Date().toISOString(), modules };
+fs.writeFileSync('active_modules.json', JSON.stringify(out, null, 2));
+console.log('Wrote active_modules.json', modules.length);
