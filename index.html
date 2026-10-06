@@ -3,13 +3,19 @@
 <style>body{background:#050507;color:#e5e5e5;font-family:monospace;padding:12px}.card{border:1px solid #222;border-radius:12px;padding:14px;margin:10px 0;background:#0e0e11}.good{color:#22c55e}.muted{opacity:0.6;font-size:11px}</style>
 </head><body>
 <h1>SHIV Performance</h1>
-<p class="muted">Auto-sorted | Live from active_modules.json</p>
+<p class="muted">Auto-sorted by best PNL | Every 1 hour</p>
 <div id="list">Loading...</div>
 <div id="log" class="muted" style="margin-top:20px"></div>
 <script>
 async function load(){
 try{
-const res=await fetch('./active_modules.json?t='+Date.now());
-const data=await res.json();
-const mods=(data.modules||data).sort((a,b)=>(b.pnl||b.performance||0)-(a.pnl||a.performance||0));
-document.getElementById('list').innerHTML=
+const r=await fetch('./active_modules.json?t='+Date.now());
+const d=await r.json();
+const mods=(d.modules||[]).sort((a,b)=>b.pnl-a.pnl);
+document.getElementById('list').innerHTML=mods.map(m=>`<div class=card><b>${m.name}</b><br>PNL: <span class=good>${m.pnl} SOL</span> | Weight: ${m.w}% | Score: ${Math.round(m.pnl*100)}/100</div>`).join('');
+document.getElementById('log').innerText='LIVE '+new Date().toLocaleString()+' | '+mods.length+' modules | '+d.updated;
+}catch(e){document.getElementById('list').innerHTML='Run Actions > Run workflow once to create data';}
+}
+load();
+</script>
+</body></html>
