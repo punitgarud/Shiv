@@ -1,8 +1,8 @@
 {
   "active": true,
   "owner": "punitgarud",
-  "version": 2,
-  "lastUpdate": "2026-10-08T06:59:04.646Z",
+  "version": 3,
+  "lastUpdate": "2026-10-08T07:53:08.377Z",
   "modules": [
     {
       "id": 1,
@@ -68,21 +68,40 @@
   "top4": [
     {
       "module": "JUPITER_DUST_SWEEP",
-      "mint": "So11111111111111111111111111111111111111112"
+      "action": "BUY",
+      "inputMint": "So11111111111111111111111111111111111111112",
+      "outputMint": "So11111111111111111111111111111111111111112",
+      "amountSOL": 0.01,
+      "slippageBps": 50
     },
     {
       "module": "DEFI_YIELD_OPTIMIZER",
-      "mint": "So11111111111111111111111111111111111111112"
+      "action": "BUY",
+      "inputMint": "So11111111111111111111111111111111111111112",
+      "outputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "amountSOL": 0.01,
+      "slippageBps": 50
     },
     {
       "module": "SEEKER_ECOSYSTEM_CORE",
-      "mint": "So11111111111111111111111111111111111111112"
+      "action": "HOLD",
+      "inputMint": "NONE",
+      "outputMint": "NONE",
+      "amountSOL": 0
     },
     {
       "module": "DAILY_CHALLENGE_RUNNER",
-      "mint": "So11111111111111111111111111111111111111112"
+      "action": "HOLD",
+      "inputMint": "NONE",
+      "outputMint": "NONE",
+      "amountSOL": 0
     }
   ],
+  "risk": {
+    "maxDailyLossSOL": 0.1,
+    "maxTradeSOL": 0.05,
+    "stopLossPct": 10
+  },
   "dailyTasks": [
     "Seeker Verify",
     "Wilderness",
