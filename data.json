@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-05-13T10:00:00Z",
+  "solPriceUsd": 152.34,
+  "top4": [
+    {"id":"alpha_sniper","name":"Alpha Sniper","score":96.5,"signal":"BUY","mint":"So11111111111111111111111111111111111111112","entryPrice":150.2,"currentPrice":155.1,"priceChangePct":3.26,"sharpe":2.14,"winRate":78.5,"maxDrawdown":-4.2,"winStreak":7},
+    {"id":"momentum","name":"Momentum v2","score":92.1,"signal":"BUY","mint":"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v","entryPrice":1.0,"currentPrice":1.02,"priceChangePct":2.0,"sharpe":1.82,"winRate":71.2,"maxDrawdown":-6.1,"winStreak":4},
+    {"id":"mean_rev","name":"MeanRev Pro","score":45.3,"signal":"SELL","mint":"So11111111111111111111111111111111111111112","entryPrice":148.5,"currentPrice":147.1,"priceChangePct":-0.94,"sharpe":0.89,"winRate":52.1,"maxDrawdown":-12.5,"winStreak":0},
+    {"id":"breakout","name":"Breakout Scalper","score":30.1,"signal":"SELL","mint":"So11111111111111111111111111111111111111112","entryPrice":151.0,"currentPrice":149.5,"priceChangePct":-0.99,"sharpe":0.45,"winRate":41.3,"maxDrawdown":-18.2,"winStreak":0}
+  ]
+}
