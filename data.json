@@ -1,10 +1,24 @@
 {
-  "updatedAt": "2026-05-13T10:00:00Z",
-  "solPriceUsd": 152.34,
-  "top4": [
-    {"id":"alpha_sniper","name":"Alpha Sniper","score":96.5,"signal":"BUY","mint":"So11111111111111111111111111111111111111112","entryPrice":150.2,"currentPrice":155.1,"priceChangePct":3.26,"sharpe":2.14,"winRate":78.5,"maxDrawdown":-4.2,"winStreak":7},
-    {"id":"momentum","name":"Momentum v2","score":92.1,"signal":"BUY","mint":"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v","entryPrice":1.0,"currentPrice":1.02,"priceChangePct":2.0,"sharpe":1.82,"winRate":71.2,"maxDrawdown":-6.1,"winStreak":4},
-    {"id":"mean_rev","name":"MeanRev Pro","score":45.3,"signal":"SELL","mint":"So11111111111111111111111111111111111111112","entryPrice":148.5,"currentPrice":147.1,"priceChangePct":-0.94,"sharpe":0.89,"winRate":52.1,"maxDrawdown":-12.5,"winStreak":0},
-    {"id":"breakout","name":"Breakout Scalper","score":30.1,"signal":"SELL","mint":"So11111111111111111111111111111111111111112","entryPrice":151.0,"currentPrice":149.5,"priceChangePct":-0.99,"sharpe":0.45,"winRate":41.3,"maxDrawdown":-18.2,"winStreak":0}
+  "version": "v29-12-modules-final",
+  "totalBankSOL": 4.579,
+  "profitSOL": 4.579,
+  "profitPct": 114,
+  "solPriceUsd": 172.5,
+  "lastUpdated": "2026-10-22",
+  "gods": [
+    {"id":"mickey_scout","name":"MickeyScout GOD v29","allocation":0.974,"pct":30,"score":96.5,"signal":"BUY","sharpe":2.4,"winRate":78,"maxDrawdown":-3.2},
+    {"id":"vulture","name":"Vulture GOD v29","allocation":0.89,"pct":25,"score":93.2,"signal":"BUY","sharpe":2.1,"winRate":72,"maxDrawdown":-5.1},
+    {"id":"sniper","name":"Sniper GOD v29","allocation":0.887,"pct":15,"score":91.0,"signal":"BUY","sharpe":1.9,"winRate":70,"maxDrawdown":-4.0},
+    {"id":"degen","name":"Degen GOD v29","allocation":0.794,"pct":10,"score":88.5,"signal":"BUY","sharpe":1.7,"winRate":68,"maxDrawdown":-8.5},
+    {"id":"mom_breakout","name":"Momentum-Breakout GOD v29","allocation":0.517,"pct":10,"score":85.3,"signal":"BUY","sharpe":1.6,"winRate":67,"maxDrawdown":-6.0},
+    {"id":"grid","name":"Grid GOD v29","allocation":0.377,"pct":5,"score":82.1,"signal":"BUY","sharpe":1.8,"winRate":75,"maxDrawdown":-2.5},
+    {"id":"scalper","name":"Scalper GOD v29","allocation":0.209,"pct":3,"score":80.0,"signal":"BUY","sharpe":1.5,"winRate":66,"maxDrawdown":-4.5},
+    {"id":"airdrop","name":"Airdrop Hunter GOD v29","allocation":0.218,"pct":2,"score":79.5,"signal":"BUY","sharpe":2.0,"winRate":80,"maxDrawdown":-1.2}
+  ],
+  "intelVeto": [
+    {"id":9,"name":"rugcheck.xyz","veto":false},
+    {"id":10,"name":"bubblemaps.io","veto":false},
+    {"id":11,"name":"tokenomist unlocks","veto":false},
+    {"id":12,"name":"coinglass liq heatmap","veto":false}
   ]
 }
