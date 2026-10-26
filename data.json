@@ -1,24 +1,53 @@
 {
-  "version": "v29-12-modules-final",
-  "totalBankSOL": 4.579,
-  "profitSOL": 4.579,
-  "profitPct": 114,
-  "solPriceUsd": 172.5,
-  "lastUpdated": "2026-10-22",
-  "gods": [
-    {"id":"mickey_scout","name":"MickeyScout GOD v29","allocation":0.974,"pct":30,"score":96.5,"signal":"BUY","sharpe":2.4,"winRate":78,"maxDrawdown":-3.2},
-    {"id":"vulture","name":"Vulture GOD v29","allocation":0.89,"pct":25,"score":93.2,"signal":"BUY","sharpe":2.1,"winRate":72,"maxDrawdown":-5.1},
-    {"id":"sniper","name":"Sniper GOD v29","allocation":0.887,"pct":15,"score":91.0,"signal":"BUY","sharpe":1.9,"winRate":70,"maxDrawdown":-4.0},
-    {"id":"degen","name":"Degen GOD v29","allocation":0.794,"pct":10,"score":88.5,"signal":"BUY","sharpe":1.7,"winRate":68,"maxDrawdown":-8.5},
-    {"id":"mom_breakout","name":"Momentum-Breakout GOD v29","allocation":0.517,"pct":10,"score":85.3,"signal":"BUY","sharpe":1.6,"winRate":67,"maxDrawdown":-6.0},
-    {"id":"grid","name":"Grid GOD v29","allocation":0.377,"pct":5,"score":82.1,"signal":"BUY","sharpe":1.8,"winRate":75,"maxDrawdown":-2.5},
-    {"id":"scalper","name":"Scalper GOD v29","allocation":0.209,"pct":3,"score":80.0,"signal":"BUY","sharpe":1.5,"winRate":66,"maxDrawdown":-4.5},
-    {"id":"airdrop","name":"Airdrop Hunter GOD v29","allocation":0.218,"pct":2,"score":79.5,"signal":"BUY","sharpe":2.0,"winRate":80,"maxDrawdown":-1.2}
-  ],
-  "intelVeto": [
-    {"id":9,"name":"rugcheck.xyz","veto":false},
-    {"id":10,"name":"bubblemaps.io","veto":false},
-    {"id":11,"name":"tokenomist unlocks","veto":false},
-    {"id":12,"name":"coinglass liq heatmap","veto":false}
+  "solPriceUsd": 150.0,
+  "top4": [
+    {
+      "id": "JUP",
+      "name": "Jupiter Scan",
+      "score": 92,
+      "mint": "So11111111111111111111111111111111111111112",
+      "signal": "BUY",
+      "sharpe": 2.1,
+      "winRate": 78,
+      "maxDrawdown": -2.3,
+      "rugScore": 85,
+      "unlockDays": 30
+    },
+    {
+      "id": "FEE",
+      "name": "Fee Optimizer",
+      "score": 88,
+      "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "signal": "BUY",
+      "sharpe": 1.9,
+      "winRate": 74,
+      "maxDrawdown": -3.1,
+      "rugScore": 90,
+      "unlockDays": 45
+    },
+    {
+      "id": "RISK",
+      "name": "RugCheck Guard",
+      "score": 95,
+      "mint": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+      "signal": "HOLD",
+      "sharpe": 2.4,
+      "winRate": 82,
+      "maxDrawdown": -1.5,
+      "rugScore": 95,
+      "unlockDays": 60
+    },
+    {
+      "id": "SHARPE",
+      "name": "Sharpe Alpha",
+      "score": 90,
+      "mint": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+      "signal": "BUY",
+      "sharpe": 2.2,
+      "winRate": 79,
+      "maxDrawdown": -2.0,
+      "rugScore": 88,
+      "unlockDays": 14
+    }
   ]
 }
